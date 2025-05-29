@@ -1,0 +1,13 @@
+{
+  "dialect": "postgresql",
+  "schema": "./src/server/db/schemas/*.ts",
+  "out": "./src/server/db/migrations",
+  "dbCredentials": {
+    "host": "localhost",
+    "port": 5432,
+    "user": "admin",
+    "password": "my_password",
+    "database": "authn",
+    "ssl": false
+  }
+}
