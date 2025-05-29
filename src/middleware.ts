@@ -1,5 +1,5 @@
 export async function middleware() {
-  console.log("This only runs on nextjs runtime");
+  // This only runs on nextjs runtime
 }
 
 export const config = {
