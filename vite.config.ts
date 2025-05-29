@@ -6,5 +6,6 @@ export default defineConfig({
   plugins: [react(), tsconfigPaths()],
   test: {
     environment: "jsdom",
+    exclude: ["tests/e2e/**", "node_modules/**", ".next/**"],
   },
 });
