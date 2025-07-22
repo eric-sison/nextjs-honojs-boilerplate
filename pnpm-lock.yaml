@@ -4,10 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  '@esbuild-kit/core-utils': 3.3.2
-  '@esbuild-kit/esm-loader': 2.6.5
-
 importers:
 
   .:
