@@ -1,4 +1,7 @@
 {
   "printWidth": 110,
-  "plugins": ["prettier-plugin-tailwindcss"]
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "importOrder": ["^react$", "^react-dom$", "^(?!react$|react-dom$|@/|\\.).*", "^@/.*", "^\\.{1,2}/.*"],
+  "importOrderSeparation": false,
+  "importOrderSortSpecifiers": true
 }
