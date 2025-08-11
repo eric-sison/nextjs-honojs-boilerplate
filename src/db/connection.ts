@@ -1,8 +1,8 @@
-import { parseEnv } from "@/utils";
+import { createEnv } from "@/env";
 import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
 
-const env = parseEnv();
+const env = createEnv();
 
 const pool = new Pool({
   host: env.DB_HOST,

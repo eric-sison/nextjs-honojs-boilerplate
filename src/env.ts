@@ -1,18 +1,5 @@
 import z, { type ZodError } from "zod";
-import { EnvSchema } from "./constants";
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
-
-/**
- * Utility function to merge Tailwind CSS class names.
- * Combines multiple className values using `clsx` and then resolves Tailwind conflicts using `twMerge`.
- *
- * @param inputs - Any number of class values (strings, arrays, objects).
- * @returns A single merged className string.
- */
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
+import { EnvSchema } from "./utils/validators";
 
 /**
  * Parses and validates environment variables using the Zod schema `EnvSchema`.
@@ -23,7 +10,7 @@ export function cn(...inputs: ClassValue[]) {
  * @param env - An object conforming to the `Env` type (not actually used here, kept for typing).
  * @returns The validated environment configuration object.
  */
-export const parseEnv = () => {
+export const createEnv = () => {
   try {
     // Validate process.env against schema
     const env = EnvSchema.parse(process.env);
