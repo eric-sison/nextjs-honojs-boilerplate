@@ -10,3 +10,5 @@ export const EnvSchema = z.object({
   DB_PASS: z.string(),
   DB_NAME: z.string(),
 });
+
+export type Env = z.infer<typeof EnvSchema>;
