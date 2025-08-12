@@ -1,4 +1,4 @@
-import { ThemeToggler } from "@/components/ThemeToggler";
+import { ThemeToggler } from "../components/ThemeToggler";
 import Image from "next/image";
 
 export default function Home() {

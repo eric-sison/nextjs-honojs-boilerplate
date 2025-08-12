@@ -1,5 +1,11 @@
+import { EnvSchema } from "../lib/validators/common";
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 import z, { type ZodError } from "zod";
-import { EnvSchema } from "./validators/common";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 
 export const createEnv = () => {
   try {
