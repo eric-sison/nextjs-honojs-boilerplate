@@ -1,4 +1,4 @@
-import { createEnv } from "../utils/helpers";
+import { createEnv } from "../utils/createEnv";
 import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
 
