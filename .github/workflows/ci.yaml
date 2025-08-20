@@ -32,6 +32,14 @@ jobs:
 
       - name: Run tests
         run: pnpm test
+        env:
+          NEXT_PUBLIC_HOST: "http://localhost"
+          DB_HOST: "localhost"
+          DB_PORT: "5432"
+          DB_USER: "test"
+          DB_PASS: "test"
+          DB_NAME: "test"
+          CLIENT_SECRET_ENCRYPTION_KEY: "dummy-secret"
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
@@ -95,6 +103,14 @@ jobs:
 
       - name: Build project
         run: pnpm build
+        env:
+          NEXT_PUBLIC_HOST: "http://localhost"
+          DB_HOST: "localhost"
+          DB_PORT: "5432"
+          DB_USER: "test"
+          DB_PASS: "test"
+          DB_NAME: "test"
+          CLIENT_SECRET_ENCRYPTION_KEY: "dummy-secret"
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
