@@ -14,7 +14,7 @@
 /coverage
 
 # migrations
-/src/db/migrations
+/db/migrations
 
 # next.js
 /.next/
