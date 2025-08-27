@@ -1,9 +1,9 @@
 import { type Metadata } from "next";
 import { type PropsWithChildren } from "react";
 import { Inter } from "next/font/google";
-import "./globals.css";
 import { ReactQueryProvider } from "../components/ReactQueryProvider";
 import { ThemeProvider } from "../components/ThemeProvider";
+import "./globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
