@@ -14,6 +14,11 @@ export const metadata: Metadata = {
   title: "NextJS Boilerplate",
 };
 
+export type PageProps<T, K> = {
+  params: Promise<T>;
+  searchParams: Promise<K>;
+};
+
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <html lang="en" suppressHydrationWarning>
