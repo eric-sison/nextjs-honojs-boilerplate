@@ -23,7 +23,7 @@ export type PageProps<T = {}, K = {}> = {
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${inter.className} h-screen w-screen overflow-y-hidden antialiased`}>
         <ReactQueryProvider>
           {/* prettier-ignore */}
           <ThemeProvider 
