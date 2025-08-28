@@ -67,6 +67,8 @@ You can add as much `env` variables as you need, but make sure to also include t
 pnpm dev
 ```
 
+Once development server is running, you may access the app at `http://localhost:3000/`
+
 ## 🧪 Testing
 
 - Unit Test (Vitest):
