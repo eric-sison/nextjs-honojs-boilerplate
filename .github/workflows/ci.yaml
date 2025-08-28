@@ -33,7 +33,7 @@ jobs:
       - name: Run tests
         run: pnpm test
         env:
-          NEXT_PUBLIC_HOST: "http://localhost"
+          APP_HOST: "http://localhost"
           DB_HOST: "localhost"
           DB_PORT: "5432"
           DB_USER: "test"
@@ -104,7 +104,7 @@ jobs:
       - name: Build project
         run: pnpm build
         env:
-          NEXT_PUBLIC_HOST: "http://localhost"
+          APP_HOST: "http://localhost"
           DB_HOST: "localhost"
           DB_PORT: "5432"
           DB_USER: "test"
