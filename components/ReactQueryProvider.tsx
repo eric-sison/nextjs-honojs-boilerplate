@@ -13,8 +13,8 @@ type RQDevtoolsState = {
 
 const ReactQueryDevtoolsProduction = lazy(() =>
   import("@tanstack/react-query-devtools/build/modern/production.js").then((d) => ({
-    default: d.ReactQueryDevtools,
-  })),
+    default: d.ReactQueryDevtools
+  }))
 );
 
 const queryClient = new QueryClient();
@@ -44,6 +44,6 @@ export const ReactQueryProvider: FunctionComponent<PropsWithChildren> = ({ child
 const useRQDevtoolsInProd = create<RQDevtoolsState>()(
   devtools((set, get) => ({
     show: false,
-    toggleDevtools: () => set(() => ({ show: !get().show }), false, "toogle_devtools_in_prod"),
-  })),
+    toggleDevtools: () => set(() => ({ show: !get().show }), false, "toogle_devtools_in_prod")
+  }))
 );

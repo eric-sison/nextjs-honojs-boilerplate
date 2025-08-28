@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: "Full Stack NextJS Boilerplate",
 };
 
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 export type PageProps<T = {}, K = {}> = {
   params: Promise<T>;
   searchParams: Promise<K>;
