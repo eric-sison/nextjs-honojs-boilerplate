@@ -11,10 +11,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "NextJS Boilerplate",
+  title: "Full Stack NextJS Boilerplate",
 };
 
-export type PageProps<T, K> = {
+export type PageProps<T = {}, K = {}> = {
   params: Promise<T>;
   searchParams: Promise<K>;
 };
