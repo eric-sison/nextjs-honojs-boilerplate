@@ -1,0 +1,6 @@
+.next
+.dockerignore
+.npmrc
+.nvmrc
+*.log
+Dockerfile
