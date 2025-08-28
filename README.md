@@ -42,6 +42,8 @@ cd nextjs-boilerplate
 
 ### 2. Install Dependencies
 
+This template requires `pnpm` as your package manager, so make sure to install it first. https://pnpm.io/installation
+
 ```bash
 pnpm install
 ```
@@ -49,13 +51,15 @@ pnpm install
 ### 3. Set up Environment Variables
 
 ```env
-NEXT_PUBLIC_HOST=
+APP_HOST=
 DB_HOST=
 DB_PORT=
 DB_USER=
 DB_PASS=
 DB_NAME=
 ```
+
+You can add as much `env` variables as you need, but make sure to also include them in your `EnvSchema` located at `/utils/validators/common.ts`. It is also worth noting that the `createEnv()` (`/utils/createEnv.ts`) function only runs on the server.
 
 ### 4. Start Development Server
 
