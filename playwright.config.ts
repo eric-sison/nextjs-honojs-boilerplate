@@ -34,5 +34,14 @@ export default defineConfig({
     command: "npm run dev",
     url: "http://localhost:3000",
     reuseExistingServer: !process.env.CI,
+
+    //* Add as much env variables as you specified in the EnvSchema as required
+    env: {
+      DB_HOST: "localhost",
+      DB_PORT: "5432",
+      DB_USER: "admin",
+      DB_PASS: "admin",
+      DB_NAME: "mydb",
+    },
   },
 });
