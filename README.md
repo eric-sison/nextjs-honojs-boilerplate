@@ -51,7 +51,6 @@ pnpm install
 ### 3. Set up Environment Variables
 
 ```env
-APP_HOST=
 DB_HOST=
 DB_PORT=
 DB_USER=
