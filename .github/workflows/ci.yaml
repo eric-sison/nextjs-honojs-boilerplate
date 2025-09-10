@@ -6,11 +6,45 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
+  commitlint:
+    runs-on: ubuntu-latest
+    name: Commitlint
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install commitlint
+        run: npm install -D @commitlint/cli @commitlint/config-conventional
+
+      - name: Print versions
+        run: |
+          git --version
+          node --version
+          npm --version
+          npx commitlint --version
+
+      - name: Validate last commit (push)
+        if: github.event_name == 'push'
+        run: npx commitlint --last --verbose
+
+      - name: Validate PR commits
+        if: github.event_name == 'pull_request'
+        run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
+
   test:
     runs-on: ubuntu-latest
     name: Test
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,7 +73,6 @@ jobs:
           DB_USER: "test"
           DB_PASS: "test"
           DB_NAME: "test"
-          CLIENT_SECRET_ENCRYPTION_KEY: "dummy-secret"
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
@@ -54,7 +87,6 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     name: Lint
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -78,10 +110,9 @@ jobs:
         run: pnpm lint
 
   build:
-    needs: [test, lint]
+    needs: [commitlint, test, lint]
     runs-on: ubuntu-latest
     name: Build
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -110,7 +141,6 @@ jobs:
           DB_USER: "test"
           DB_PASS: "test"
           DB_NAME: "test"
-          CLIENT_SECRET_ENCRYPTION_KEY: "dummy-secret"
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
@@ -127,7 +157,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Playwright Tests
     timeout-minutes: 60
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
