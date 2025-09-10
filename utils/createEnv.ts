@@ -1,5 +1,5 @@
 import z, { type ZodError } from "zod";
-import { EnvSchema } from "./validators/common";
+import { EnvSchema } from "../shared/validators/env";
 
 export const createEnv = () => {
   try {
