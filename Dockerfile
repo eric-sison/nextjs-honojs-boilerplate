@@ -40,6 +40,9 @@ FROM base AS runner
 
 WORKDIR /app
 
+# Install curl for healthchecks
+RUN apk add --no-cache curl
+
 # Don't run production as root
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs

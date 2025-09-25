@@ -9,17 +9,15 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - db
-    environment:
-      NEXT_PUBLIC_HOST: ${NEXT_PUBLIC_HOST}
-      BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET}
-      BETTER_AUTH_URL: ${BETTER_AUTH_URL}
-      RESEND_API_KEY: ${RESEND_API_KEY}
-      DB_HOST: db
-      DB_PORT: ${DB_PORT}
-      DB_USER: ${DB_USER}
-      DB_PASS: ${DB_PASS}
-      DB_NAME: ${DB_NAME}
+      db:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://my-app:3000/api/healthcheck"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
   db:
     image: postgres:15-alpine
     container_name: my-app-db
@@ -32,6 +30,12 @@ services:
       - "${DB_PORT}:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME} -h localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
 
 volumes:
   db_data:
