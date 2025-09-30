@@ -4,8 +4,8 @@
 
 services:
   db:
-    image: postgres:15
-    container_name: erp_postgres
+    image: postgres:15-alpine
+    container_name: app_postgres
     restart: always
     environment:
       POSTGRES_USER: ${DB_USER}
